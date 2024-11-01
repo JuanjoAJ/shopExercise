@@ -132,9 +132,6 @@ public class ShoppingController implements Initializable {
                 if(viewCartStage!=null && viewCartStage.isShowing()){
                     viewCart();
                 }
-//TODO Stage investigar para que no habra un scene nuevo. Mejor actualizar el stage
-
-
             }
         } else {
             alert = new Alert(Alert.AlertType.ERROR);

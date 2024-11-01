@@ -2,6 +2,8 @@ package shopexercise.shopexercise.utils;
 
 import shopexercise.shopexercise.model.Customer;
 import shopexercise.shopexercise.model.OrderDetailWithProduct;
+import shopexercise.shopexercise.repositories.OrderRepository;
+
 import javax.crypto.spec.SecretKeySpec;
 import javax.mail.*;
 import javax.mail.internet.AddressException;
@@ -24,9 +26,12 @@ public class MailSender {
 
     public String textMail(){
         StringBuilder text= new StringBuilder();
+        OrderRepository orderRepository=new OrderRepository();
+
         for (OrderDetailWithProduct item:orderDetails) {
             text.append(item).append("\n");
         }
+        text.append(String.format("\nTOTAL PRICE: %.2f \n Thank you for choosing to shop with us.", orderRepository.getOrder(orderDetails.getFirst().getIDOrder()).getTotalPrice()));
         return text.toString();
     }
 

@@ -33,6 +33,6 @@ public class OrderDetailWithProduct {
 
     @Override
     public String toString() {
-        return String.format("Product: %s Amount: %s Price: %f TOTAL:%f.2", product.getTitle(), orderDetails.getAmount(), orderDetails.getUnitPrice(), (orderDetails.getAmount()*orderDetails.getUnitPrice()));
+        return String.format("Product: %s Amount: %s Price: %.2f TOTAL:%.2f", product.getTitle(), orderDetails.getAmount(), orderDetails.getUnitPrice(), (orderDetails.getAmount()*orderDetails.getUnitPrice()));
     }
 }
